@@ -1,4 +1,4 @@
-package com.example.simplespringappink8s.controller;
+package com.example.simplespringapp.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

@@ -1,13 +1,13 @@
-package com.example.simplespringappink8s;
+package com.example.simplespringapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SimpleSpringAppInK8sApplication {
+public class SimpleSpringAppApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SimpleSpringAppInK8sApplication.class, args);
+        SpringApplication.run(SimpleSpringAppApplication.class, args);
     }
 
 }

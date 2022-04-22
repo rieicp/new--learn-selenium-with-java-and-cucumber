@@ -1,10 +1,10 @@
-package com.example.simplespringappink8s;
+package com.example.simplespringapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SimpleSpringAppInK8sApplicationTests {
+class SimpleSpringAppApplicationTests {
 
     @Test
     void contextLoads() {
