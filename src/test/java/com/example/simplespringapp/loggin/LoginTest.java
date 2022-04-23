@@ -47,7 +47,6 @@ public class LoginTest {
         assertEquals("SonarQube", driver.getTitle());
     }
 
-
     @AfterEach
     public void teardown() {
         if (driver != null) {
