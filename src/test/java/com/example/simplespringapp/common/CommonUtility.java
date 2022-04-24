@@ -21,8 +21,8 @@ public class CommonUtility {
 //        //      .usingDriverExecutable(new File(CHROMEDRIVER_BIN))
 //        //      .build();
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox"); // Bypass OS security model, MUST BE THE VERY FIRST OPTION
-        options.addArguments("--headless");
+//        options.addArguments("--no-sandbox"); // Bypass OS security model, MUST BE THE VERY FIRST OPTION
+//        options.addArguments("--headless");
 //        options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"}); // disable "chrome is controlled by test software"
         options.addArguments("--window-size=1920,1080");
 //        options.addArguments("start-maximized"); // open Browser in maximized mode
