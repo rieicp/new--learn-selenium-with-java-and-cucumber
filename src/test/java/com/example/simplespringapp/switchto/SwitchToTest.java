@@ -74,11 +74,11 @@ public class SwitchToTest {
 
         driver.findElement(By.xpath("//*[@id=\"Tabbed\"]/a/button")).click();
 
-        Set<String> handlevalues=driver.getWindowHandles();
+        Set<String> handlevalues = driver.getWindowHandles();
         for(String h:handlevalues)
         {
             //System.out.println(h);
-            String title=driver.switchTo().window(h).getTitle();
+            String title = driver.switchTo().window(h).getTitle();
             //System.out.println(title);
             if(title.equals("Selenium") ) {
                 WebElement about = driver.findElement(By.partialLinkText("About"));//about menu
