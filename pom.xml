@@ -51,7 +51,7 @@
 			</plugins>
 		</build>
 	</profile>
-</profles>
+</profiles>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
