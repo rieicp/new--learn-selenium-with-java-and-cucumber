@@ -4,19 +4,19 @@ on:
   push:
 
 jobs:
-  test:
-    name: Unit Test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Set up JDK 11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
-      - name: Maven Package
-        run: mvn -B clean package -DskipTests
-      - name: Maven Verify
-        run: mvn -B clean verify
+#  test:
+#    name: Unit Test
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v1
+#      - name: Set up JDK 11
+#        uses: actions/setup-java@v1
+#        with:
+#          java-version: 11
+#      - name: Maven Package
+#        run: mvn -B clean package -DskipTests
+#      - name: Maven Verify
+#        run: mvn -B clean verify
         
   sonar:
     name: Test - SonarCloud Scan
@@ -32,4 +32,4 @@ jobs:
           mvn clean verify sonar:sonar \
           -Dsonar.projectKey=rieicp_learn-selenium-with-java-and-cucumber_AYCpvx-wZyBVSczFB9Up \
           -Dsonar.host.url=http://34.79.25.10:9001 \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+          -Dsonar.login=52dec5f3afdc0dcc003e407f96411ee4b1866226
