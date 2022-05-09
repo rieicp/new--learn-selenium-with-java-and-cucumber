@@ -26,11 +26,9 @@
 		<id>sonar</id>
 		<properties>
 			<sonar.sources>.</sonar.sources>
-			<sonar.inclusions>src/main/java/**,src/main/resources/**</sonar.inclusions>
 			<sonar.exclusions>${code.coverage.exclusions}</sonar.exclusions>
-			<sonar.projectKey>simple.spring.app</sonar.projectKey>
-			<sonar.organization>nw.soft</sonar.organization>
-			<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+  			<sonar.organization>rieicp-github</sonar.organization>
+  			<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		</properties>
 		<activation>
 			<activeByDefault>false</activeByDefault>
