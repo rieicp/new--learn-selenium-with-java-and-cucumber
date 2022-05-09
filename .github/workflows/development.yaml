@@ -28,6 +28,4 @@ jobs:
         with:
           java-version: 11
       - name: SonarCloud Scan
-        run: mvn -B clean verify -Psonar -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: mvn clean verify sonar:sonar -Dsonar.projectKey=rieicp_learn-selenium-with-java-and-cucumber_AYCpvx-wZyBVSczFB9Up -Dsonar.host.url=http://34.79.25.10:9001 -Dsonar.login=52dec5f3afdc0dcc003e407f96411ee4b1866226
