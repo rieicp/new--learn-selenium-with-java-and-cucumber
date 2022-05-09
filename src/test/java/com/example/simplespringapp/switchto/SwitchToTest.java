@@ -44,28 +44,6 @@ public class SwitchToTest {
     }
 
     @Test
-    public void switchFramesTest() {
-        driver.get("http://demo.automationtesting.in/Frames.html");
-        driver.findElement(By.partialLinkText("with in an Ifram")).click();
-        // switch到outerframe
-        WebElement outerframe=driver.findElement(By.xpath("//*[@id=\"Multiple\"]/iframe"));
-        assertTrue(outerframe.getAttribute("src").contains("MultipleFrames.html"));
-        driver.switchTo().frame(outerframe);
-        // 跳出 frame
-        driver.switchTo().defaultContent();
-        // 再次switch到outerframe
-        driver.switchTo().frame(outerframe);
-        // 定位并切换到内部frame
-        WebElement innerframe=driver.findElement(By.tagName("iframe"));
-        assertTrue(innerframe.getAttribute("src").contains("SingleFrame.html"));
-        driver.switchTo().frame(innerframe);
-        // 在内部frame的文本框中输入文字
-        WebElement input = driver.findElement(By.tagName("input"));
-        input.sendKeys("TESTING");
-        assertEquals("TESTING", input.getAttribute("value"));
-    }
-
-    @Test
     public void switchWindows() {
         driver.get("http://demo.automationtesting.in/Windows.html");
 
