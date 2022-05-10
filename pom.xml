@@ -15,26 +15,7 @@
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
-	<code.coverage.exclusions>
-		**/com/wkrzywiec/medium/noticeboard/controller/dto/**,
-		**/com/wkrzywiec/medium/noticeboard/entity/**,
-		**/com/wkrzywiec/medium/noticeboard/Application.java
-	</code.coverage.exclusions>
     </properties>
-<profiles>
-	<profile>
-		<id>sonar</id>
-		<properties>
-			<sonar.sources>.</sonar.sources>
-			<sonar.exclusions>${code.coverage.exclusions}</sonar.exclusions>
-  			<sonar.projectKey>rieicp_learn-selenium-with-java-and-cucumber_AYCpvx-wZyBVSczFB9Up</sonar.projectKey>
-  			<sonar.host.url>http://34.79.25.10:9001</sonar.host.url>
-		</properties>
-		<activation>
-			<activeByDefault>false</activeByDefault>
-		</activation>
-	</profile>
-</profiles>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
