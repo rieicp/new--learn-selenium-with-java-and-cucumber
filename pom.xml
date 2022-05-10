@@ -8,8 +8,8 @@
         <version>2.6.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>simpleSpringAppInK8s</artifactId>
+    <groupId>com.nwsoft</groupId>
+    <artifactId>simple-spring-app</artifactId>
     <version>0.0.1</version>
     <name>simpleSpringAppInK8s</name>
     <description>Demo project for Spring Boot</description>
