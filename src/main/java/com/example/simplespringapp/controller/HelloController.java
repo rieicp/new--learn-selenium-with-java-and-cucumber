@@ -12,4 +12,9 @@ public class HelloController {
         return "hali halo";
     }
 
+    @RequestMapping(method = RequestMethod.GET, path="/home")
+    public String home () {
+        return "home";
+    }
+
 }
