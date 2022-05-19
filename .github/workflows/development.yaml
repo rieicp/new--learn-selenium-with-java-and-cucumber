@@ -2,6 +2,9 @@ name: Branches for Development
 
 on:
   push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
 #  test:
@@ -28,9 +31,18 @@ jobs:
         with:
           java-version: 11.0.4
       - name: SonarCloud Scan
-        run: mvn -B clean verify -Psonar -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mvn -B clean verify -Dsonar.coverage.jacoco.xmlReportPaths=./target/site/jacoco/jacoco.xml \
+          -Psonar -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+
+      - uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          files: ./target/site/jacoco/jacoco.xml # optional
+          flags: unittests # optional
+          name: codecov-umbrella # optional
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)
 
 #  sonarqube:
 #    name: sonarqube
