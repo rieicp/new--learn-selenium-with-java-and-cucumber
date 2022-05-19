@@ -17,9 +17,23 @@ jobs:
 #        run: mvn -B clean package -DskipTests
 #      - name: Maven Verify
 #        run: mvn -B clean verify
-#
-#  sonar:
-#    name: sonar
+
+  sonarcloud:
+    name: Test - SonarCloud Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11.0.4
+      - name: SonarCloud Scan
+        run: mvn -B clean verify -Psonar -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+#  sonarqube:
+#    name: sonarqube
 #    runs-on: ubuntu-latest
 #    steps:
 #      - uses: actions/checkout@v2
@@ -47,18 +61,18 @@ jobs:
 #          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 #          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 #        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=rieicp_learn-selenium-with-java-and-cucumber_AYCp__tuZyBVSczFB9VA
-  artifact:
-    name: Publish - GitHub Packages
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v1
-        with:
-          java-version: 11
-      - name: Publish package
-        run: mvn -B deploy -DskipTests
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#  artifact:
+#    name: Publish - GitHub Packages
+#    runs-on: ubuntu-latest
+#    permissions:
+#      contents: read
+#      packages: write
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: actions/setup-java@v1
+#        with:
+#          java-version: 11
+#      - name: Publish package
+#        run: mvn -B deploy -DskipTests
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
