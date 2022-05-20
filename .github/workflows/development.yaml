@@ -4,37 +4,23 @@ on:
   push:
     branches:
       - main
+      - '**'
   pull_request:
 
 jobs:
-#  test:
-#    name: Unit Test
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v1
-#      - name: Set up JDK 11
-#        uses: actions/setup-java@v1
-#        with:
-#          java-version: 11
-#      - name: Maven Package
-#        run: mvn -B clean package -DskipTests
-#      - name: Maven Verify
-#        run: mvn -B clean verify
-
-  sonarcloud:
-    name: Test - SonarCloud Scan
+  test:
+    name: Unit Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Set up JDK 11
         uses: actions/setup-java@v1
         with:
-          java-version: 11.0.4
-      - name: SonarCloud Scan
-        run: |
-          mvn -B clean verify -Dsonar.coverage.jacoco.xmlReportPaths=./target/site/jacoco/jacoco.xml \
-          -Psonar -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-
+          java-version: 11
+      - name: Maven Package
+        run: mvn -B clean package -DskipTests
+      - name: Maven Verify
+        run: mvn -B clean verify
       - uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
@@ -43,6 +29,19 @@ jobs:
           name: codecov-umbrella # optional
           fail_ci_if_error: true # optional (default = false)
           verbose: true # optional (default = false)
+
+#  sonarcloud:
+#    name: Test - SonarCloud Scan
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v1
+#      - name: Set up JDK 11
+#        uses: actions/setup-java@v1
+#        with:
+#          java-version: 11.0.4
+#      - name: SonarCloud Scan
+#        run: |
+#          mvn -B clean verify -Psonar -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
 #  sonarqube:
 #    name: sonarqube
