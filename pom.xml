@@ -23,7 +23,7 @@
     </properties>
     <profiles>
         <profile>
-            <id>sonar</id>
+            <id>jacoco</id>
             <build>
                 <plugins>
                     <plugin>
